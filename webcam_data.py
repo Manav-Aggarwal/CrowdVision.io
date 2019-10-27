@@ -26,7 +26,7 @@ else:
 begin = time.time()
 path = 'locations.txt'
 while rval:
-    print("step:", (time.time() - begin))
+    #print("step:", (time.time() - begin))
     cv2.imshow("webcam", frame)
     rval, frame = vc.read()
 
@@ -39,7 +39,6 @@ while rval:
     if wasFound:
         with open(path, 'a') as f:
             f.write(str(get_location()) + "\n")
-        break
         time.sleep(3)
     key = cv2.waitKey(20)
     if key == 27:

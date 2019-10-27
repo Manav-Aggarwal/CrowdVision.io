@@ -48,7 +48,7 @@ def predict(image, net, classes):
 	start = time.time()
 	preds = net.forward()
 	end = time.time()
-	print("[INFO] classification took {:.5} seconds".format(end - start))
+	#print("[INFO] classification took {:.5} seconds".format(end - start))
 
 	# sort the indexes of the probabilities in descending order (higher
 	# probabilitiy first) and grab the top-5 predictions
@@ -60,16 +60,12 @@ def predict(image, net, classes):
 	print(classes[idxs[0]])
 	if classes[idxs[0]] == military:
 		print("Found a {}".format(military))
-	else:
-		print("Did not find a {}".format(military))
 
 	for i, idx in enumerate(idxs):
 		# draw the top prediction on the input image
 		
 		# display the predicted label + associated probability to the
 		# console	
-		print("[INFO] {}. label: {}, probability: {:.5}".format(i + 1,
-			classes[idx], preds[0][idx]))
 		if classes[idx] == military:
 			return True
 		if i == 5:

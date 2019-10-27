@@ -3,13 +3,16 @@ import time
 from send_data import get_location
 import json
 path = 'locations.txt'
+lastSeen = ''
 with open(path, 'r') as f:
-	lastSeen = f.readlines()[-1]
+	lines = f.readlines()
+	if lines:
+		lastSeen = lines[-1]
 
 vibration = "n"
-with serial.Serial('/dev/cu.usbmodem14301',9600,timeout=10) as ser:
+with serial.Serial('/dev/cu.usbmodem14401',9600,timeout=10) as ser:
 	while True:
-		#print(vibration)
+		print(vibration)
 		with open(path, 'r') as f:
 			lines = f.readlines()
 			if lines and lastSeen != lines[-1]:
