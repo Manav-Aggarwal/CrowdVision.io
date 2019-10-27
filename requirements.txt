@@ -1,0 +1,7 @@
+numpy
+torch
+pandas
+PIL
+cv2
+json
+pyserial
